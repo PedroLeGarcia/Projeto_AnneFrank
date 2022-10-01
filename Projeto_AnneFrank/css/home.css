@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&display=swap');
 *{
-	margin: 0;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
@@ -162,4 +162,33 @@ header{
   border-radius: 0 5px 5px 0;
   cursor: pointer;
   font-size: 20px;
+}
+.livros{
+ display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.dados{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.productBox{
+    width: 25rem;
+   padding: 1.5rem;
+   margin: 0.5rem;
+   background-color: #f8f8ff;
+   border: 1px solid lightgray;
+   box-shadow: 1px 3px 1px #0000001c;
+}
+.productBox h1{
+    font-weight: 500;
+    text-align: center;
+    font-size: 1.5rem;
+}
+.productBox img{
+    width: 15rem;
 }
