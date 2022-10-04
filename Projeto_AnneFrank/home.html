@@ -21,9 +21,9 @@
 
 					<div class="nav-listem">
 						<ul>
-							<li class="nav-item"><a href="" class="nav-link"></a></li>
-							<li class="nav-item"><a href="" class="nav-link"></a></li>
-							<li class="nav-item"><a href="" class="nav-link"></a></li>
+							<li class="nav-item"><a href="" class="nav-link">Início</a></li>
+							<li class="nav-item"><a href="" class="nav-link">Por que Anne Frank?</a></li>
+							<li class="nav-item"><a href="" class="nav-link">Membros</a></li>
 						</ul>
 					</div>
 
@@ -53,34 +53,40 @@
 		<div class="pesquisa">
 			<div class="search-box">
 				<input class="search-text" type="text" name="" placeholder="Buscar por Livros...">
-				<button type="submit" class="searchButton"><i class="fa fa-search"></i></button>
+				<button type="submit" id="txtBusca" class="searchButton"><i class="fa fa-search"></i></button>
 			</div>
 		</div>
 
-		<div class="pesquisa">
-			<div class="search-box">
-				<input class="search-text" type="text" name="" placeholder="Buscar por Autores...">
-				<button type="submit" class="searchButton"><i class="fa fa-search"></i></button>
-			</div>
-		</div>
+		<div class="dados">
 
-		<div class="pesquisa">
-			<div class="search-box">
-				<input class="search-text" type="text" name="" placeholder="Buscar por Editoras...">
-				<button type="submit" class="searchButton"><i class="fa fa-search"></i></button>
-			</div>
 		</div>
-
-		<div class="pesquisa">
-			<div class="search-box">
-				<input class="search-text" type="text" name="" placeholder="Buscar por Gêneros...">
-				<button type="submit" class="searchButton"><i class="fa fa-search"></i></button>
-			</div>
-		</div>
-			<div class="dados">
-
-			</div>
 	</div><!-- Fim do container-->
+
+	<script>
+    let btn = document.getElementById('buscar');
+    let campbusca = document.getElementById('txtBusca');
+    
+    btn.addEventListener('click', ()=>{ 
+    let formData = new FormData();
+    formData.append('txtBuscar', `${campbusca.value}`);
+
+    fetch('https://hakim.profrodolfo.com.br/livro.php'),
+    {
+        body: formData,
+        method: 'POST',
+        mode: 'cors',
+        cache: 'default'
+    }
+        ).then(res=> {res.json().then(data=>{
+            if(data.erro){
+                alert('Livro não encontrado. :(');
+            }else{
+                return resposta.json();
+            }
+        })})
+    });
+    </script>
+
 	<script type="text/javascript">
 		function MenuShow() {
 	let menuMobile = document.querrySelector('.mobile-menu');
